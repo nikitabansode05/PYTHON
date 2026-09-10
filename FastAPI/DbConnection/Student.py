@@ -18,17 +18,31 @@ def add_student():
     
     print("Student added successfully")
     
+def update_student():
+    id=int(input("Enter the id : "))
+    name=input("Enter the correct name : ")
+    email=input("Enter the correct mail : ")
+    
+    sql="UPDATE students SET name=%s,email=%s WHERE id=%s"
+    values=(name,email,id)
+    dbCommand.execute(sql,values)
+    dbConnection.commit()   
+    
+    print("Data updated successfully") 
 #menu
 
 while True:
     print("\n1)Add Student")
-    print("\n2) Exit")
+    print("\n2)Update student information")
+    print("\n3) Exit")
     
-    choice=input("Enter Choice : ")
+    choice=input("\nEnter Choice : ")
     
-    if choice=="1":
+    if choice == "1":
         add_student()
     elif choice == "2":
+        update_student()
+    elif choice == "3":
         break
     else:
         print("Invalid choice")
