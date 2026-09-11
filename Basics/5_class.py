@@ -1,9 +1,12 @@
 class Point:
+
     def __init__(self,x,y):
         self.X=x
         self.Y=y
+        
     def __str__(self):
         return f"X : {self.X} Y : {self.Y}"
+    
     def show(self):
         print(f"X={self.X}, Y={self.Y}")
         
