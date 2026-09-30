@@ -1,3 +1,8 @@
+#handler is a function pointer
+#handlers are just functions (first-class objects) passed around,
+# not raw memory pointers, 
+# but they behave like references to executable code.
+
 class EventDispatcher:
 
     def __init__(self):
@@ -15,9 +20,9 @@ class EventDispatcher:
         print(f"\nEvent Published: {event_name}")
 
         for handler in self.handlers.get(event_name, []):
-            handler(data)
+            handler(data)   #This is called passing functions as values / first-class functions in Python.
             
-def validate_claim(data):
+def validate_claim(data):   #handler
 
     print("Validating claim:", data["claim_id"])
 
@@ -28,19 +33,19 @@ def validate_claim(data):
     print("Claim validation completed")
 
 
-def notify_customer(data):
+def notify_customer(data):#handler
 
     print("Sending claim acknowledgement to:",
           data["customer_email"])
 
 
-def notify_claims_officer(data):
+def notify_claims_officer(data):#handler
 
     print("Notifying claims officer about:",
           data["claim_id"])
 
 
-def update_audit_log(data):
+def update_audit_log(data):#handler
 
     print("Recording claim submission in audit log")
     
