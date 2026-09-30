@@ -1,0 +1,60 @@
+class EventDispatcher:
+
+    def __init__(self):
+        self.handlers = {}
+
+    def subscribe(self, event_name, handler):
+
+        if event_name not in self.handlers:
+            self.handlers[event_name] = []
+
+        self.handlers[event_name].append(handler)
+
+    def publish(self, event_name, data):
+
+        print(f"\nEvent Published: {event_name}")
+
+        for handler in self.handlers.get(event_name, []):
+            handler(data)
+            
+def validate_claim(data):
+
+    print("Validating claim:", data["claim_id"])
+
+    if data["amount"] <= 0:
+        print("Invalid claim amount")
+        return
+
+    print("Claim validation completed")
+
+
+def notify_customer(data):
+
+    print("Sending claim acknowledgement to:",
+          data["customer_email"])
+
+
+def notify_claims_officer(data):
+
+    print("Notifying claims officer about:",
+          data["claim_id"])
+
+
+def update_audit_log(data):
+
+    print("Recording claim submission in audit log")
+    
+dispatcher = EventDispatcher()
+dispatcher.subscribe("ClaimSubmitted", validate_claim)
+dispatcher.subscribe("ClaimSubmitted", notify_customer)
+dispatcher.subscribe("ClaimSubmitted", notify_claims_officer)
+dispatcher.subscribe("ClaimSubmitted", update_audit_log)
+
+claim = {
+    "claim_id": "CLM1001",
+    "customer_name": "Rahul",
+    "customer_email": "rahul@example.com",
+    "amount": 50000
+}
+
+dispatcher.publish("ClaimSubmitted", claim)
