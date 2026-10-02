@@ -4,7 +4,6 @@ dbConnection=mysql.connector.connect(host="localhost",user="root",password="pass
 dbCommand=dbConnection.cursor()
 
 #insert
-
 def add_student():
     id=int(input("Enter Id :"))
     name=input("Enter name : ")
@@ -48,4 +47,6 @@ while True:
         print("Invalid choice")
         
 dbCommand.close()
-dbConnection.close()
+dbConnection.close() 
+
+    
