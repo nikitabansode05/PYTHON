@@ -21,6 +21,9 @@ class PolicyService:
         return asdict(policy)
     
     def create_policy(self,policy_data:dict):
+        if policy_data["premium"]<500:
+            raise ValueError("Minimum premium mush be 500")
+        
         policy=self.repository.create(policy_data)
         return asdict(policy)
     
