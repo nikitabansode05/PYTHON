@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+pypdf
+
+langchain
+langchain-google-genai
+# langsmith

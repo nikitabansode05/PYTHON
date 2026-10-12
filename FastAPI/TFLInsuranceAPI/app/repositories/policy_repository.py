@@ -8,6 +8,7 @@ class PolicyRepository:
                 id=1,
                 name="Jeevan Labh",
                 description="Life insurance savings plan",
+                maturity="5 years",
                 premium=15000.0
             ),
             2: Policy(

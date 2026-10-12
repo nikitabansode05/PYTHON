@@ -1,0 +1,51 @@
+[
+    {
+        "name": "ARJUN SHARMA",
+        "email": "arjun.sharma@gmail.com",
+        "phone": "+91-9876543210",
+        "skills": [
+            "Python",
+            "Java",
+            "C++",
+            "JavaScript",
+            "SQL",
+            "React.js",
+            "Node.js",
+            "Spring Boot",
+            "TensorFlow",
+            "PyTorch",
+            "AWS (EC2, S3, Lambda)",
+            "Docker",
+            "Kubernetes",
+            "CI/CD",
+            "GitHub Actions",
+            "MySQL",
+            "PostgreSQL",
+            "MongoDB",
+            "Redis"
+        ],
+        "education": [
+            {
+                "degree": "B.Tech in Computer Science and Engineering",
+                "institution": "Indian Institute of Technology, Bombay",
+                "year": "2020 \u2013 2024"
+            }
+        ],
+        "experience": [
+            {
+                "company": "Amazon (AWS)",
+                "role": "Software Engineering Intern",
+                "duration": "May 2023 \u2013 Aug 2023"
+            },
+            {
+                "company": "LangChain (GitHub)",
+                "role": "Open Source Contributor",
+                "duration": "Jan 2024 \u2013 Present"
+            }
+        ],
+        "projects": [
+            "CodeCollab \u2014 Real-time Collaborative Code Editor",
+            "ML-Based Fraud Detection System"
+        ]
+    }
+]
