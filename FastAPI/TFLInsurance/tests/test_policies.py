@@ -7,11 +7,11 @@ client = TestClient(app)
 
 
 # Restore the original policies before and after every test
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True) #declares a fixture — reusable setup or cleanup logic for tests
 def reset_policies():
     original_policies = [policy.copy() for policy in policies]
 
-    yield
+    yield  #Pytest runs the setup code before yield, then runs the test, and finally resumes the fixture after yield to execute cleanup.
 
     policies.clear()
     policies.extend(original_policies)
@@ -72,10 +72,7 @@ def test_create_policy():
         "premium": 18000.0
     }
 
-    response = client.post(
-        "/api/policies",
-        json=new_policy
-    )
+    response = client.post("/api/policies",json=new_policy)
 
     assert response.status_code == 201
 
@@ -96,10 +93,7 @@ def test_create_policy_invalid_data():
         # premium is missing
     }
 
-    response = client.post(
-        "/api/policies",
-        json=invalid_policy
-    )
+    response = client.post("/api/policies",json=invalid_policy)
 
     assert response.status_code == 422
 
