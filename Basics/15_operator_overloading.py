@@ -15,10 +15,31 @@ class InsurancePolicy:
             return InsurancePolicy("COMBINED",self.customer,combined_coverage)
         
         return NotImplemented
+    def __eq__(self,other):
+        if isinstance(self,InsurancePolicy):
+            return self.policy_id==other.policy_id
+        return NotImplemented
+    
+    def __lt__(self, other):
+        if isinstance(self,InsurancePolicy):
+            return self.coverage<other.coverage
+        return NotImplemented
+    
+    def __gt__(self,other):
+        if isinstance(self,InsurancePolicy):
+            return self.coverage>other.coverage
+        return NotImplemented
+    
     
 policy1=InsurancePolicy("P1","Nikita",1000000)
 policy2=InsurancePolicy("P2","Ravi",3000000)
 
 combined_policy=policy1+policy2
 
+print("Combined Policy:")
 print(combined_policy)
+
+print("\nComparison:")
+print("Same Policy : ",policy1==policy2)
+print("Pol1>pol2 : ",policy1>policy2)
+print("Pol2>pol1 : ",policy2>policy1)
